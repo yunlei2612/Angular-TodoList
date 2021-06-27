@@ -1,0 +1,23 @@
+<div class="search">
+    <h2>Angular todolist</h2>
+    <input class="form_input" type="text"  [(ngModel)]="keyword">
+
+    <button (click)='doAdd()' class="add_button">
+        添加
+    </button>
+    <h3>代办事项</h3>
+    <ul>
+        <li *ngFor="let item of historyList;let key=index;" [hidden]="item.status==1">
+            <input type="checkbox" [(ngModel)]="item.status">{{item.title}} ------ 
+            <button (click)='deleteHistory(key)'>删除</button>
+        </li>
+    </ul>
+    <hr>
+    <h3>已完成事项</h3>
+    <ul>
+        <li *ngFor="let item of historyList;let key=index;" [hidden]="item.status==0">
+            <input type="checkbox" [(ngModel)]="item.status">{{item.title}} ------ 
+            <button (click)='deleteHistory(key)'>删除</button>
+        </li>
+    </ul>
+</div>
